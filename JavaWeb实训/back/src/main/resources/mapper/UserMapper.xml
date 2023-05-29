@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.rog//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lnpbqc.webchat.dao.UserMapper">
+    <select id="isExits" parameterType="User" resultType="User">
+        select * from `user` where `account` = #{account} and `password` = #{password}
+    </select>
+    <select id="findUserByAccount" parameterType="String" resultType="User">
+        select * from `user` where `account` = #{account}
+    </select>
+    <update id="changePassword" parameterType="User">
+        update `user` set `password` = #{password} where `account` = #{account}
+    </update>
+    <insert id="addUser" parameterType="User">
+        insert into `user` value(#{account},#{password})
+    </insert>
+    <select id="allUsers" resultType="User">
+        select * from `user`
+    </select>
+</mapper>

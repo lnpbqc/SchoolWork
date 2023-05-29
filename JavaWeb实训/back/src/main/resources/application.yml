@@ -1,0 +1,28 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/webchat?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: lnpbqc
+  servlet:
+    multipart:
+      # 设置文件上传的缓存目录
+      location: D:/tmp/
+      # 设置文件上传的最大大小，默认为1MB
+      max-file-size: 20MB
+      # 设置总的请求数据大小，默认为10MB
+      max-request-size: 20MB
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  typeAliasesPackage: xyz.lnpbqc.webchat.pojo
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+logging:
+  level:
+    root: info
+  pattern: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
